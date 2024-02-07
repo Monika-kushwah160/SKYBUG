@@ -1,0 +1,45 @@
+TASK1: NUMBER GAME
+
+
+package numbergame;
+import java.util.Random;
+import java.util.Scanner;
+public class NumberGame 
+{
+
+    
+    public static void main(String[] args) 
+    {
+        Scanner scn = new Scanner(System.in);
+        Random random = new Random();
+
+        int lowerNum = 1;
+        int upperNum = 100;
+        int randomNumber = random.nextInt(upperNum - lowerNum+ 1) + lowerNum;
+
+        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.println("I have chosen a number between 1 and 100. Try to guess it.");
+
+        int Guessnum;
+        int attempts = 0;
+
+        do {
+            System.out.print("Enter your guess: ");
+            Guessnum = scn.nextInt();
+            attempts++;
+
+            if (Guessnum < randomNumber) {
+                System.out.println(Guessnum+" is Too low! Try again.");
+            } else if (Guessnum > randomNumber) {
+                System.out.println(Guessnum+" is Too high! Try again.");
+            } else {
+                System.out.println("Congratulations! You guessed the number in " + attempts + " attempts.");
+            }
+        } while (Guessnum != randomNumber);
+
+        scn.close();
+   
+
+    }
+    
+}
